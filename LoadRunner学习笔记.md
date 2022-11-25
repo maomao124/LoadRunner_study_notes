@@ -1342,3 +1342,107 @@ Action()
 
 ### 创建性能测试场景
 
+#### 1.点击创建controller场景
+
+![image-20221125231831297](img/LoadRunner学习笔记/image-20221125231831297.png)
+
+
+
+![image-20221125231854196](img/LoadRunner学习笔记/image-20221125231854196.png)
+
+
+
+![image-20221125231944827](img/LoadRunner学习笔记/image-20221125231944827.png)
+
+
+
+
+
+#### 2.点击确定
+
+![image-20221125232017382](img/LoadRunner学习笔记/image-20221125232017382.png)
+
+
+
+确定之后就会自动打开Controller
+
+
+
+![image-20221125232051066](img/LoadRunner学习笔记/image-20221125232051066.png)
+
+
+
+
+
+
+
+#### 3.设置初始化参数
+
+在全局设置里
+
+
+
+![image-20221125232220965](img/LoadRunner学习笔记/image-20221125232220965.png)
+
+
+
+双击
+
+![image-20221125232227497](img/LoadRunner学习笔记/image-20221125232227497.png)
+
+
+
+
+
+![image-20221125232334632](img/LoadRunner学习笔记/image-20221125232334632.png)
+
+
+
+
+
+#### 4.设置启动Vuser参数
+
+![image-20221125232455475](img/LoadRunner学习笔记/image-20221125232455475.png)
+
+
+
+
+
+#### 5.设置持续时间参数
+
+
+
+![image-20221125232544937](img/LoadRunner学习笔记/image-20221125232544937.png)
+
+
+
+
+
+#### 6.设置停止Vuser参数
+
+![image-20221125232639445](img/LoadRunner学习笔记/image-20221125232639445.png)
+
+
+
+
+
+最终曲线
+
+
+
+![image-20221125232659168](img/LoadRunner学习笔记/image-20221125232659168.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+### 利用Analysis分析结果
+
