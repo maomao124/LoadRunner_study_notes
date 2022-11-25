@@ -769,3 +769,576 @@ httpd.exe: Could not reliably determine the server's fully qualified domain name
 
 
 
+
+
+### 录制脚本
+
+#### 1.启动Virtual User Generator
+
+
+
+![image-20221125172449077](img/LoadRunner学习笔记/image-20221125172449077.png)
+
+
+
+![image-20221125172506836](img/LoadRunner学习笔记/image-20221125172506836.png)
+
+
+
+
+
+
+
+#### 2.点击添加新脚本按钮
+
+![image-20221125172544363](img/LoadRunner学习笔记/image-20221125172544363.png)
+
+
+
+![image-20221125172555486](img/LoadRunner学习笔记/image-20221125172555486.png)
+
+
+
+
+
+#### 3.选择单协议的web-http/html
+
+
+
+![image-20221125172812602](img/LoadRunner学习笔记/image-20221125172812602.png)
+
+
+
+#### 4.点击创建
+
+
+
+![image-20221125172909131](img/LoadRunner学习笔记/image-20221125172909131.png)
+
+
+
+
+
+VuGen 中的脚本分为三部分：vuser_init、vuser_end 和Action
+
+* vuser_init：用于用户初始化
+* vuser_end：用于用户清理工作
+* Action：用于具体的需要测试的操作
+
+
+
+
+
+#### 5.开始录制脚本
+
+![image-20221125173153035](img/LoadRunner学习笔记/image-20221125173153035.png)
+
+
+
+![image-20221125173237173](img/LoadRunner学习笔记/image-20221125173237173.png)
+
+
+
+
+
+#### 6.填充相关信息
+
+
+
+![image-20221125173406469](img/LoadRunner学习笔记/image-20221125173406469.png)
+
+
+
+![image-20221125173501761](img/LoadRunner学习笔记/image-20221125173501761.png)
+
+
+
+![image-20221125173521592](img/LoadRunner学习笔记/image-20221125173521592.png)
+
+
+
+
+
+#### 7.点击开始录制
+
+![image-20221125173818338](img/LoadRunner学习笔记/image-20221125173818338.png)
+
+
+
+登录
+
+![image-20221125173853635](img/LoadRunner学习笔记/image-20221125173853635.png)
+
+
+
+退出登录
+
+
+
+![image-20221125173913239](img/LoadRunner学习笔记/image-20221125173913239.png)
+
+
+
+停止录制
+
+
+
+
+
+#### 8.查看结果
+
+![image-20221125225814631](img/LoadRunner学习笔记/image-20221125225814631.png)
+
+
+
+
+
+![image-20221125225828670](img/LoadRunner学习笔记/image-20221125225828670.png)
+
+
+
+
+
+
+
+```c
+Action()
+{
+
+	web_add_cookie("Idea-2347e683=7bef4e77-fa42-4f63-b13f-9d49fe35fcf9; DOMAIN=localhost");
+
+	web_add_cookie("mbox=session#a01c13ff0816407685902a031e6d50bd#1644071823|PC#a01c13ff0816407685902a031e6d50bd.32_0#1678249975; DOMAIN=localhost");
+
+	web_add_cookie("_ga=GA1.1.2061233658.1650939704; DOMAIN=localhost");
+
+	web_add_cookie("Hm_lvt_ae92ebc51ffb2f8d62e7164dceac0b71=1668322496; DOMAIN=localhost");
+
+	web_add_cookie("MSO=SID&1669388033; DOMAIN=localhost");
+
+	web_add_header("Sec-Fetch-Dest", 
+		"document");
+
+	web_add_auto_header("Sec-Fetch-Mode", 
+		"navigate");
+
+	web_add_header("Sec-Fetch-Site", 
+		"none");
+
+	web_add_auto_header("Upgrade-Insecure-Requests", 
+		"1");
+
+	web_add_auto_header("sec-ch-ua", 
+		"\"Microsoft Edge\";v=\"107\", \"Chromium\";v=\"107\", \"Not=A?Brand\";v=\"24\"");
+
+	web_add_auto_header("sec-ch-ua-mobile", 
+		"?0");
+
+	web_add_auto_header("sec-ch-ua-platform", 
+		"\"Windows\"");
+
+	web_add_header("Sec-Fetch-User", 
+		"?1");
+
+	web_url("index.htm", 
+		"URL=http://localhost:1080/WebTours/index.htm", 
+		"Resource=0", 
+		"RecContentType=text/html", 
+		"Referer=", 
+		"Snapshot=t1.inf", 
+		"Mode=HTTP", 
+		LAST);
+
+	web_concurrent_start(NULL);
+
+	web_url("header.html", 
+		"URL=http://localhost:1080/WebTours/header.html", 
+		"Resource=0", 
+		"RecContentType=text/html", 
+		"Referer=", 
+		"Snapshot=t2.inf", 
+		"Mode=HTTP", 
+		LAST);
+
+	web_add_header("Sec-Fetch-Dest", 
+		"frame");
+
+	web_add_header("Sec-Fetch-Site", 
+		"same-origin");
+
+	web_url("welcome.pl", 
+		"URL=http://localhost:1080/cgi-bin/welcome.pl?signOff=true", 
+		"Resource=0", 
+		"RecContentType=text/html", 
+		"Referer=http://localhost:1080/WebTours/index.htm", 
+		"Snapshot=t3.inf", 
+		"Mode=HTTP", 
+		LAST);
+
+	web_concurrent_end(NULL);
+
+	web_concurrent_start(NULL);
+
+	web_url("hp_logo.png", 
+		"URL=http://localhost:1080/WebTours/images/hp_logo.png", 
+		"Resource=1", 
+		"RecContentType=image/png", 
+		"Referer=http://localhost:1080/WebTours/header.html", 
+		"Snapshot=t4.inf", 
+		LAST);
+
+	web_url("webtours.png", 
+		"URL=http://localhost:1080/WebTours/images/webtours.png", 
+		"Resource=1", 
+		"RecContentType=image/png", 
+		"Referer=http://localhost:1080/WebTours/header.html", 
+		"Snapshot=t5.inf", 
+		LAST);
+
+	web_concurrent_end(NULL);
+
+	web_add_header("Sec-Fetch-Dest", 
+		"frame");
+
+	web_add_header("Sec-Fetch-Site", 
+		"same-origin");
+
+	web_url("nav.pl", 
+		"URL=http://localhost:1080/cgi-bin/nav.pl?in=home", 
+		"Resource=0", 
+		"RecContentType=text/html", 
+		"Referer=http://localhost:1080/cgi-bin/welcome.pl?signOff=true", 
+		"Snapshot=t6.inf", 
+		"Mode=HTTP", 
+		LAST);
+
+	web_revert_auto_header("Sec-Fetch-Mode");
+
+	web_revert_auto_header("Upgrade-Insecure-Requests");
+
+	web_revert_auto_header("sec-ch-ua");
+
+	web_revert_auto_header("sec-ch-ua-mobile");
+
+	web_revert_auto_header("sec-ch-ua-platform");
+
+	web_url("home.html", 
+		"URL=http://localhost:1080/WebTours/home.html", 
+		"Resource=0", 
+		"RecContentType=text/html", 
+		"Referer=", 
+		"Snapshot=t7.inf", 
+		"Mode=HTTP", 
+		LAST);
+
+	web_add_header("sec-ch-ua", 
+		"\"Microsoft Edge\";v=\"107\", \"Chromium\";v=\"107\", \"Not=A?Brand\";v=\"24\"");
+
+	web_add_header("sec-ch-ua-mobile", 
+		"?0");
+
+	web_add_header("sec-ch-ua-platform", 
+		"\"Windows\"");
+
+	web_url("mer_login.gif", 
+		"URL=http://localhost:1080/WebTours/images/mer_login.gif", 
+		"Resource=1", 
+		"RecContentType=image/gif", 
+		"Referer=http://localhost:1080/cgi-bin/nav.pl?in=home", 
+		"Snapshot=t8.inf", 
+		LAST);
+
+	web_add_header("Origin", 
+		"http://localhost:1080");
+
+	web_add_auto_header("Sec-Fetch-Dest", 
+		"frame");
+
+	web_add_auto_header("Sec-Fetch-Mode", 
+		"navigate");
+
+	web_add_auto_header("Sec-Fetch-Site", 
+		"same-origin");
+
+	web_add_header("Sec-Fetch-User", 
+		"?1");
+
+	web_add_auto_header("Upgrade-Insecure-Requests", 
+		"1");
+
+	web_add_auto_header("sec-ch-ua", 
+		"\"Microsoft Edge\";v=\"107\", \"Chromium\";v=\"107\", \"Not=A?Brand\";v=\"24\"");
+
+	web_add_auto_header("sec-ch-ua-mobile", 
+		"?0");
+
+	web_add_auto_header("sec-ch-ua-platform", 
+		"\"Windows\"");
+
+	web_submit_data("login.pl", 
+		"Action=http://localhost:1080/cgi-bin/login.pl", 
+		"Method=POST", 
+		"RecContentType=text/html", 
+		"Referer=http://localhost:1080/cgi-bin/nav.pl?in=home", 
+		"Snapshot=t9.inf", 
+		"Mode=HTTP", 
+		ITEMDATA, 
+		"Name=userSession", "Value=135227.868853787zQffHiDpfAtVzzzHtVHDtpHAVAcf", ENDITEM, 
+		"Name=username", "Value=jojo", ENDITEM, 
+		"Name=password", "Value=", ENDITEM, 
+		"Name=login.x", "Value=0", ENDITEM, 
+		"Name=login.y", "Value=0", ENDITEM, 
+		"Name=JSFormSubmit", "Value=off", ENDITEM, 
+		LAST);
+
+	web_url("nav.pl_2", 
+		"URL=http://localhost:1080/cgi-bin/nav.pl?username=jojo&password=", 
+		"Resource=0", 
+		"RecContentType=text/html", 
+		"Referer=http://localhost:1080/cgi-bin/login.pl", 
+		"Snapshot=t10.inf", 
+		"Mode=HTTP", 
+		LAST);
+
+	web_url("error.pl", 
+		"URL=http://localhost:1080/cgi-bin/error.pl?error=badPassword", 
+		"Resource=0", 
+		"RecContentType=text/html", 
+		"Referer=http://localhost:1080/cgi-bin/login.pl", 
+		"Snapshot=t11.inf", 
+		"Mode=HTTP", 
+		LAST);
+
+	web_url("mer_login.gif_2", 
+		"URL=http://localhost:1080/WebTours/images/mer_login.gif", 
+		"Resource=1", 
+		"RecContentType=image/gif", 
+		"Referer=http://localhost:1080/cgi-bin/nav.pl?username=jojo&password=", 
+		"Snapshot=t12.inf", 
+		LAST);
+
+	web_add_header("Origin", 
+		"http://localhost:1080");
+
+	web_add_header("Sec-Fetch-User", 
+		"?1");
+
+	web_submit_data("login.pl_2", 
+		"Action=http://localhost:1080/cgi-bin/login.pl", 
+		"Method=POST", 
+		"RecContentType=text/html", 
+		"Referer=http://localhost:1080/cgi-bin/nav.pl?username=jojo&password=", 
+		"Snapshot=t13.inf", 
+		"Mode=HTTP", 
+		ITEMDATA, 
+		"Name=userSession", "Value=135227.868853787zQffHiDpfAtVzzzHtVHDtpHAVAcf", ENDITEM, 
+		"Name=username", "Value=jojo", ENDITEM, 
+		"Name=password", "Value=bean", ENDITEM, 
+		"Name=login.x", "Value=64", ENDITEM, 
+		"Name=login.y", "Value=8", ENDITEM, 
+		"Name=JSFormSubmit", "Value=off", ENDITEM, 
+		LAST);
+
+	web_url("nav.pl_3", 
+		"URL=http://localhost:1080/cgi-bin/nav.pl?page=menu&in=home", 
+		"Resource=0", 
+		"RecContentType=text/html", 
+		"Referer=http://localhost:1080/cgi-bin/login.pl", 
+		"Snapshot=t14.inf", 
+		"Mode=HTTP", 
+		LAST);
+
+	web_url("login.pl_3", 
+		"URL=http://localhost:1080/cgi-bin/login.pl?intro=true", 
+		"Resource=0", 
+		"RecContentType=text/html", 
+		"Referer=http://localhost:1080/cgi-bin/login.pl", 
+		"Snapshot=t15.inf", 
+		"Mode=HTTP", 
+		LAST);
+
+	web_concurrent_start(NULL);
+
+	web_url("flights.gif", 
+		"URL=http://localhost:1080/WebTours/images/flights.gif", 
+		"Resource=1", 
+		"RecContentType=image/gif", 
+		"Referer=", 
+		"Snapshot=t16.inf", 
+		LAST);
+
+	web_url("itinerary.gif", 
+		"URL=http://localhost:1080/WebTours/images/itinerary.gif", 
+		"Resource=1", 
+		"RecContentType=image/gif", 
+		"Referer=", 
+		"Snapshot=t17.inf", 
+		LAST);
+
+	web_url("in_home.gif", 
+		"URL=http://localhost:1080/WebTours/images/in_home.gif", 
+		"Resource=1", 
+		"RecContentType=image/gif", 
+		"Referer=", 
+		"Snapshot=t18.inf", 
+		LAST);
+
+	web_url("signoff.gif", 
+		"URL=http://localhost:1080/WebTours/images/signoff.gif", 
+		"Resource=1", 
+		"RecContentType=image/gif", 
+		"Referer=", 
+		"Snapshot=t19.inf", 
+		LAST);
+
+	web_concurrent_end(NULL);
+
+	web_add_header("Sec-Fetch-User", 
+		"?1");
+
+	web_url("welcome.pl_2", 
+		"URL=http://localhost:1080/cgi-bin/welcome.pl?signOff=1", 
+		"Resource=0", 
+		"RecContentType=text/html", 
+		"Referer=http://localhost:1080/cgi-bin/nav.pl?page=menu&in=home", 
+		"Snapshot=t20.inf", 
+		"Mode=HTTP", 
+		LAST);
+
+	web_url("nav.pl_4", 
+		"URL=http://localhost:1080/cgi-bin/nav.pl?in=home", 
+		"Resource=0", 
+		"RecContentType=text/html", 
+		"Referer=http://localhost:1080/cgi-bin/welcome.pl?signOff=1", 
+		"Snapshot=t21.inf", 
+		"Mode=HTTP", 
+		LAST);
+
+	web_revert_auto_header("Sec-Fetch-Dest");
+
+	web_revert_auto_header("Sec-Fetch-Mode");
+
+	web_revert_auto_header("Sec-Fetch-Site");
+
+	web_revert_auto_header("Upgrade-Insecure-Requests");
+
+	web_revert_auto_header("sec-ch-ua");
+
+	web_revert_auto_header("sec-ch-ua-mobile");
+
+	web_revert_auto_header("sec-ch-ua-platform");
+
+	web_url("home.html_2", 
+		"URL=http://localhost:1080/WebTours/home.html", 
+		"Resource=0", 
+		"RecContentType=text/html", 
+		"Referer=", 
+		"Snapshot=t22.inf", 
+		"Mode=HTTP", 
+		LAST);
+
+	web_add_header("sec-ch-ua", 
+		"\"Microsoft Edge\";v=\"107\", \"Chromium\";v=\"107\", \"Not=A?Brand\";v=\"24\"");
+
+	web_add_header("sec-ch-ua-mobile", 
+		"?0");
+
+	web_add_header("sec-ch-ua-platform", 
+		"\"Windows\"");
+
+	web_url("mer_login.gif_3", 
+		"URL=http://localhost:1080/WebTours/images/mer_login.gif", 
+		"Resource=1", 
+		"RecContentType=image/gif", 
+		"Referer=http://localhost:1080/cgi-bin/nav.pl?in=home", 
+		"Snapshot=t23.inf", 
+		LAST);
+
+	return 0;
+}
+```
+
+
+
+
+
+
+
+
+
+### 完善脚本
+
+**插入事务**
+
+事务：事务代表了用户的某个业务过程，需要衡量这些业务过程的性能
+
+插入事务操作可以在录制过程中进行，也可以在录制结束后进行。LoadRunner 可以在脚本
+中插入不限数量的事务。
+
+
+
+![image-20221125230902272](img/LoadRunner学习笔记/image-20221125230902272.png)
+
+
+
+![image-20221125230954217](img/LoadRunner学习笔记/image-20221125230954217.png)
+
+
+
+![image-20221125230940232](img/LoadRunner学习笔记/image-20221125230940232.png)
+
+
+
+![image-20221125231012869](img/LoadRunner学习笔记/image-20221125231012869.png)
+
+
+
+
+
+
+
+### 设置运行参数
+
+
+
+**设置运行脚本的次数**
+
+
+
+点击运行时设置
+
+![image-20221125231259687](img/LoadRunner学习笔记/image-20221125231259687.png)
+
+
+
+![image-20221125231316732](img/LoadRunner学习笔记/image-20221125231316732.png)
+
+
+
+设置成50次
+
+
+
+![image-20221125231339013](img/LoadRunner学习笔记/image-20221125231339013.png)
+
+
+
+
+
+**设置节奏**
+
+
+
+![image-20221125231503855](img/LoadRunner学习笔记/image-20221125231503855.png)
+
+
+
+
+
+
+
+
+
+
+
+### 创建性能测试场景
+
