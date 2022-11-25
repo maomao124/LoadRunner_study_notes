@@ -539,3 +539,206 @@ LoadRunner 默认安装即已经激活社区版许可，如果3个都是绿色�
 
 ## WebTours
 
+步骤：
+
+1.找到WebTours目录
+
+2.安装strawberry-perl-5.10.1.0
+
+3.进入WebTours目录
+
+4.找到StartServer.bat文件
+
+5.启动StartServer.bat
+
+6.访问
+
+
+
+
+
+**安装strawberry-perl-5.10.1.0**
+
+![image-20221125165445653](img/LoadRunner学习笔记/image-20221125165445653.png)
+
+
+
+![image-20221125165457583](img/LoadRunner学习笔记/image-20221125165457583.png)
+
+
+
+![image-20221125165524823](img/LoadRunner学习笔记/image-20221125165524823.png)
+
+
+
+
+
+**启动StartServer.bat**
+
+```sh
+PS G:\百度网盘\LoadRunner 2020> ls
+
+
+    目录: G:\百度网盘\LoadRunner 2020
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----         2020/4/28     15:59                01_主程序
+d-----         2020/4/28     15:59                02_语言包
+d-----         2020/4/26      0:42                03_购票网站项目
+d-----         2020/4/28     16:15                LoadRunner 2020 安装步骤说明
+
+
+PS G:\百度网盘\LoadRunner 2020> cd .\03_购票网站项目\
+PS G:\百度网盘\LoadRunner 2020\03_购票网站项目> ls
+
+
+    目录: G:\百度网盘\LoadRunner 2020\03_购票网站项目
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----         2020/4/26      0:42                Web Tours Sample Application
+-a----         2019/3/30     12:22       38594004 Web Tours Sample Application.zip
+
+
+PS G:\百度网盘\LoadRunner 2020\03_购票网站项目> cd '.\Web Tours Sample Application\'
+PS G:\百度网盘\LoadRunner 2020\03_购票网站项目\Web Tours Sample Application> ls
+
+
+    目录: G:\百度网盘\LoadRunner 2020\03_购票网站项目\Web Tours Sample Application
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----         2020/4/26      0:42                WebTours
+-a----          2017/8/6      5:52       33731332 strawberry-perl-5.10.1.0.msi
+-a----          2017/8/6      5:52        6447504 WebTours.zip
+
+
+PS G:\百度网盘\LoadRunner 2020\03_购票网站项目\Web Tours Sample Application> cd .\WebTours\
+PS G:\百度网盘\LoadRunner 2020\03_购票网站项目\Web Tours Sample Application\WebTours> ls
+
+
+    目录: G:\百度网盘\LoadRunner 2020\03_购票网站项目\Web Tours Sample Application\WebTours
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----         2020/4/26      0:42                bin
+d-----         2020/4/26      0:42                cgi-bin
+d-----         2020/4/26      0:42                conf
+d-----         2020/4/26      0:42                error
+d-----         2020/4/26      0:42                htdocs
+d-----         2020/4/26      0:42                icons
+d-----         2020/4/26      0:42                logs
+d-----         2020/4/26      0:42                manual
+d-----         2020/4/26      0:42                modules
+d-----         2020/4/26      0:42                templates
+-a----        2004/11/21     18:50          15159 ABOUT_APACHE.txt
+-a----          2011/9/9     14:31         121134 CHANGES.txt
+-a----         2016/4/21      3:26          17824 GetLRPath.exe
+-a----         2008/9/18     19:16           4835 INSTALL.txt
+-a----          2011/9/9     17:12          36833 LICENSE.txt
+-a----         2016/4/21      3:26         316832 mercuryproducts.dll
+-a----          2011/9/9     17:12           1323 NOTICE.txt
+-a----         2012/1/12     21:22              0 README
+-a----        2008/10/15     14:22           1650 README-win32.txt
+-a----         2007/1/10      5:50           6094 README.txt
+-a----         2014/3/10     22:32            127 StartServer.bat
+
+
+PS G:\百度网盘\LoadRunner 2020\03_购票网站项目\Web Tours Sample Application\WebTours> .\StartServer.bat
+starting the webtours apache server...
+press CTRL-C or close the window to exit :)
+httpd.exe: Could not reliably determine the server's fully qualified domain name, using 172.30.96.1 for ServerName
+```
+
+
+
+
+
+服务位于1080端口
+
+
+
+访问http://localhost:1080/WebTours/
+
+
+
+![image-20221125170048460](img/LoadRunner学习笔记/image-20221125170048460.png)
+
+如果安装了Git那么可能会报错，需要将C:\strawberry\perl\bin这个环境变量的优先级提高
+
+
+
+![image-20221125170202898](img/LoadRunner学习笔记/image-20221125170202898.png)
+
+
+
+![image-20221125170601092](img/LoadRunner学习笔记/image-20221125170601092.png)
+
+
+
+
+
+还是报错，可能是路径包含中文，需要将服务移动到非中文路径下
+
+
+
+![image-20221125171048870](img/LoadRunner学习笔记/image-20221125171048870.png)
+
+
+
+
+
+
+
+重启服务后再访问：http://localhost:1080/WebTours/
+
+
+
+```sh
+PS C:\Users\mao\Desktop\WebTours> .\StartServer.bat
+starting the webtours apache server...
+press CTRL-C or close the window to exit :)
+httpd.exe: Could not reliably determine the server's fully qualified domain name, using 172.30.96.1 for ServerName
+```
+
+
+
+
+
+![image-20221125171301081](img/LoadRunner学习笔记/image-20221125171301081.png)
+
+
+
+正常启动
+
+
+
+用户名为jojo，密码为bean
+
+
+
+![image-20221125171541295](img/LoadRunner学习笔记/image-20221125171541295.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## LoadRunner性能测试过程
+
+
+
