@@ -34,7 +34,7 @@ loadrunner是一个套件，是由多个子工具组成的
 
 
 
-
+![image-20221126141356679](img/LoadRunner学习笔记/image-20221126141356679.png)
 
 
 
@@ -1445,4 +1445,857 @@ Action()
 
 
 ### 利用Analysis分析结果
+
+#### 1.启动测试
+
+
+
+![image-20221125233056153](img/LoadRunner学习笔记/image-20221125233056153.png)
+
+
+
+#### 2.等待结果
+
+
+
+![image-20221125233138943](img/LoadRunner学习笔记/image-20221125233138943.png)
+
+
+
+
+
+![image-20221125233227068](img/LoadRunner学习笔记/image-20221125233227068.png)
+
+
+
+
+
+![image-20221125233500324](img/LoadRunner学习笔记/image-20221125233500324.png)
+
+
+
+
+
+![image-20221125233715830](img/LoadRunner学习笔记/image-20221125233715830.png)
+
+
+
+
+
+
+
+#### 3.点击分析结果
+
+![image-20221125233743292](img/LoadRunner学习笔记/image-20221125233743292.png)
+
+
+
+会打开Analysis
+
+
+
+
+
+#### 4.查看摘要报告
+
+
+
+![image-20221125233946033](img/LoadRunner学习笔记/image-20221125233946033.png)
+
+
+
+
+
+#### 5.查看正在运行的Vuser数
+
+![image-20221125234128011](img/LoadRunner学习笔记/image-20221125234128011.png)
+
+
+
+
+
+#### 6.查看每秒点击数
+
+![image-20221125234148696](img/LoadRunner学习笔记/image-20221125234148696.png)
+
+
+
+
+
+#### 7.查看吞吐量
+
+![image-20221125234207290](img/LoadRunner学习笔记/image-20221125234207290.png)
+
+
+
+
+
+#### 8.查看事务摘要
+
+![image-20221125234257844](img/LoadRunner学习笔记/image-20221125234257844.png)
+
+
+
+
+
+#### 9.查看平事务响应时间
+
+![image-20221125234324830](img/LoadRunner学习笔记/image-20221125234324830.png)
+
+
+
+
+
+#### 10.添加新图
+
+![image-20221125234408973](img/LoadRunner学习笔记/image-20221125234408973.png)
+
+
+
+![image-20221125234433785](img/LoadRunner学习笔记/image-20221125234433785.png)
+
+
+
+![image-20221125234504721](img/LoadRunner学习笔记/image-20221125234504721.png)
+
+
+
+点击打开图
+
+
+
+#### 11.查看事务性能摘要
+
+![image-20221125234547448](img/LoadRunner学习笔记/image-20221125234547448.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 测试订票的过程的响应时间
+
+### 生成HAR文件
+
+
+
+#### 1.访问网站
+
+http://localhost:1080/WebTours/index.htm
+
+![image-20221126131443780](img/LoadRunner学习笔记/image-20221126131443780.png)
+
+
+
+#### 2.登录
+
+
+
+![image-20221126131516034](img/LoadRunner学习笔记/image-20221126131516034.png)
+
+
+
+
+
+#### 3.打开开发者模式
+
+按f12打开，选择网络栏
+
+
+
+![image-20221126131553814](img/LoadRunner学习笔记/image-20221126131553814.png)
+
+
+
+
+
+#### 4.点击预订航班
+
+
+
+![image-20221126131628252](img/LoadRunner学习笔记/image-20221126131628252.png)
+
+
+
+![image-20221126131649844](img/LoadRunner学习笔记/image-20221126131649844.png)
+
+
+
+#### 5.点击继续
+
+
+
+![image-20221126131707372](img/LoadRunner学习笔记/image-20221126131707372.png)
+
+
+
+#### 6.点击继续
+
+
+
+![image-20221126131729847](img/LoadRunner学习笔记/image-20221126131729847.png)
+
+
+
+#### 7.点击继续
+
+![image-20221126131749421](img/LoadRunner学习笔记/image-20221126131749421.png)
+
+
+
+
+
+#### 8.点击Book another
+
+
+
+![image-20221126131827002](img/LoadRunner学习笔记/image-20221126131827002.png)
+
+
+
+9.点击itnerary
+
+
+
+![image-20221126131856468](img/LoadRunner学习笔记/image-20221126131856468.png)
+
+
+
+![image-20221126131924431](img/LoadRunner学习笔记/image-20221126131924431.png)
+
+
+
+
+
+
+
+#### 9.导出HAR文件
+
+![image-20221126132009979](img/LoadRunner学习笔记/image-20221126132009979.png)
+
+
+
+
+
+
+
+### 生成脚本
+
+
+
+#### 1.添加新脚本
+
+![image-20221126132159807](img/LoadRunner学习笔记/image-20221126132159807.png)
+
+
+
+
+
+
+
+#### 2.选择协议
+
+
+
+![image-20221126132230444](img/LoadRunner学习笔记/image-20221126132230444.png)
+
+
+
+
+
+#### 3.点击录制
+
+
+
+![image-20221126132257683](img/LoadRunner学习笔记/image-20221126132257683.png)
+
+
+
+#### 4.填充参数
+
+录制选择捕获的流量文件分析
+
+![image-20221126132326438](img/LoadRunner学习笔记/image-20221126132326438.png)
+
+
+
+
+
+#### 5.点击开始录制
+
+![image-20221126132420714](img/LoadRunner学习笔记/image-20221126132420714.png)
+
+
+
+![image-20221126132442307](img/LoadRunner学习笔记/image-20221126132442307.png)
+
+
+
+
+
+![image-20221126132456252](img/LoadRunner学习笔记/image-20221126132456252.png)
+
+
+
+
+
+
+
+
+
+#### 6.加入事务
+
+
+
+![image-20221126132537291](img/LoadRunner学习笔记/image-20221126132537291.png)
+
+
+
+
+
+
+
+```c
+Action()
+{
+	lr_start_transaction("t1");
+
+
+	web_add_cookie("Idea-2347e683=7bef4e77-fa42-4f63-b13f-9d49fe35fcf9; DOMAIN=localhost");
+
+	web_add_cookie("mbox=session#a01c13ff0816407685902a031e6d50bd#1644071823|PC#a01c13ff0816407685902a031e6d50bd.32_0#1678249975; DOMAIN=localhost");
+
+	web_add_cookie("_ga=GA1.1.2061233658.1650939704; DOMAIN=localhost");
+
+	web_add_cookie("Hm_lvt_ae92ebc51ffb2f8d62e7164dceac0b71=1668322496; DOMAIN=localhost");
+
+	web_add_cookie("MSO=SID&1669439627; DOMAIN=localhost");
+
+	web_add_cookie("MTUserInfo=firstName&Jojo&address2&&username&jojo&hash&47&lastName&Bean%0A&address1&&creditCard&&expDate&%0A; DOMAIN=localhost");
+
+	web_add_auto_header("Sec-Fetch-Dest", 
+		"frame");
+
+	web_add_auto_header("Sec-Fetch-Mode", 
+		"navigate");
+
+	web_add_auto_header("Sec-Fetch-Site", 
+		"same-origin");
+
+	web_add_header("Sec-Fetch-User", 
+		"?1");
+
+	web_add_auto_header("Upgrade-Insecure-Requests", 
+		"1");
+
+	web_add_auto_header("sec-ch-ua", 
+		"\"Microsoft Edge\";v=\"107\", \"Chromium\";v=\"107\", \"Not=A?Brand\";v=\"24\"");
+
+	web_add_auto_header("sec-ch-ua-mobile", 
+		"?0");
+
+	web_add_auto_header("sec-ch-ua-platform", 
+		"\"Windows\"");
+
+	web_url("welcome.pl", 
+		"URL=http://localhost:1080/cgi-bin/welcome.pl?page=search", 
+		"Resource=0", 
+		"RecContentType=text/html", 
+		"Referer=http://localhost:1080/cgi-bin/nav.pl?page=menu&in=home", 
+		"Snapshot=t1.inf", 
+		"Mode=HTTP", 
+		LAST);
+
+	web_url("nav.pl", 
+		"URL=http://localhost:1080/cgi-bin/nav.pl?page=menu&in=flights", 
+		"Resource=0", 
+		"RecContentType=text/html", 
+		"Referer=http://localhost:1080/cgi-bin/welcome.pl?page=search", 
+		"Snapshot=t2.inf", 
+		"Mode=HTTP", 
+		LAST);
+
+	web_url("reservations.pl", 
+		"URL=http://localhost:1080/cgi-bin/reservations.pl?page=welcome", 
+		"Resource=0", 
+		"RecContentType=text/html", 
+		"Referer=http://localhost:1080/cgi-bin/welcome.pl?page=search", 
+		"Snapshot=t3.inf", 
+		"Mode=HTTP", 
+		LAST);
+
+	web_concurrent_start(NULL);
+
+	web_url("in_flights.gif", 
+		"URL=http://localhost:1080/WebTours/images/in_flights.gif", 
+		"Resource=1", 
+		"RecContentType=image/gif", 
+		"Referer=", 
+		"Snapshot=t4.inf", 
+		LAST);
+
+	web_url("itinerary.gif", 
+		"URL=http://localhost:1080/WebTours/images/itinerary.gif", 
+		"Resource=1", 
+		"RecContentType=image/gif", 
+		"Referer=http://localhost:1080/cgi-bin/nav.pl?page=menu&in=flights", 
+		"Snapshot=t5.inf", 
+		LAST);
+
+	web_url("home.gif", 
+		"URL=http://localhost:1080/WebTours/images/home.gif", 
+		"Resource=1", 
+		"RecContentType=image/gif", 
+		"Referer=", 
+		"Snapshot=t6.inf", 
+		LAST);
+
+	web_url("signoff.gif", 
+		"URL=http://localhost:1080/WebTours/images/signoff.gif", 
+		"Resource=1", 
+		"RecContentType=image/gif", 
+		"Referer=http://localhost:1080/cgi-bin/nav.pl?page=menu&in=flights", 
+		"Snapshot=t7.inf", 
+		LAST);
+
+	web_url("button_next.gif", 
+		"URL=http://localhost:1080/WebTours/images/button_next.gif", 
+		"Resource=1", 
+		"RecContentType=image/gif", 
+		"Referer=", 
+		"Snapshot=t8.inf", 
+		LAST);
+
+	web_concurrent_end(NULL);
+
+	web_add_auto_header("Origin", 
+		"http://localhost:1080");
+
+	web_add_auto_header("Sec-Fetch-User", 
+		"?1");
+
+	web_submit_data("reservations.pl_2", 
+		"Action=http://localhost:1080/cgi-bin/reservations.pl", 
+		"Method=POST", 
+		"RecContentType=text/html", 
+		"Referer=http://localhost:1080/cgi-bin/reservations.pl?page=welcome", 
+		"Snapshot=t9.inf", 
+		"Mode=HTTP", 
+		ITEMDATA, 
+		"Name=advanceDiscount", "Value=0", ENDITEM, 
+		"Name=depart", "Value=Denver", ENDITEM, 
+		"Name=departDate", "Value=11/27/2022", ENDITEM, 
+		"Name=arrive", "Value=London", ENDITEM, 
+		"Name=returnDate", "Value=11/28/2022", ENDITEM, 
+		"Name=numPassengers", "Value=1", ENDITEM, 
+		"Name=seatPref", "Value=Window", ENDITEM, 
+		"Name=seatType", "Value=Coach", ENDITEM, 
+		"Name=findFlights.x", "Value=57", ENDITEM, 
+		"Name=findFlights.y", "Value=13", ENDITEM, 
+		"Name=.cgifields", "Value=roundtrip", ENDITEM, 
+		"Name=.cgifields", "Value=seatType", ENDITEM, 
+		"Name=.cgifields", "Value=seatPref", ENDITEM, 
+		LAST);
+
+	web_url("button_next.gif_2", 
+		"URL=http://localhost:1080/WebTours/images/button_next.gif", 
+		"Resource=1", 
+		"RecContentType=image/gif", 
+		"Referer=http://localhost:1080/cgi-bin/reservations.pl", 
+		"Snapshot=t10.inf", 
+		LAST);
+
+	web_submit_data("reservations.pl_3", 
+		"Action=http://localhost:1080/cgi-bin/reservations.pl", 
+		"Method=POST", 
+		"RecContentType=text/html", 
+		"Referer=http://localhost:1080/cgi-bin/reservations.pl", 
+		"Snapshot=t11.inf", 
+		"Mode=HTTP", 
+		ITEMDATA, 
+		"Name=outboundFlight", "Value=020;338;11/27/2022", ENDITEM, 
+		"Name=numPassengers", "Value=1", ENDITEM, 
+		"Name=advanceDiscount", "Value=0", ENDITEM, 
+		"Name=seatType", "Value=Coach", ENDITEM, 
+		"Name=seatPref", "Value=Window", ENDITEM, 
+		"Name=reserveFlights.x", "Value=44", ENDITEM, 
+		"Name=reserveFlights.y", "Value=9", ENDITEM, 
+		LAST);
+
+	web_url("button_next.gif_3", 
+		"URL=http://localhost:1080/WebTours/images/button_next.gif", 
+		"Resource=1", 
+		"RecContentType=image/gif", 
+		"Referer=http://localhost:1080/cgi-bin/reservations.pl", 
+		"Snapshot=t12.inf", 
+		LAST);
+
+	web_submit_data("reservations.pl_4", 
+		"Action=http://localhost:1080/cgi-bin/reservations.pl", 
+		"Method=POST", 
+		"RecContentType=text/html", 
+		"Referer=http://localhost:1080/cgi-bin/reservations.pl", 
+		"Snapshot=t13.inf", 
+		"Mode=HTTP", 
+		ITEMDATA, 
+		"Name=firstName", "Value=Jojo", ENDITEM, 
+		"Name=lastName", "Value=Bean", ENDITEM, 
+		"Name=address1", "Value=", ENDITEM, 
+		"Name=address2", "Value=", ENDITEM, 
+		"Name=pass1", "Value=Jojo Bean", ENDITEM, 
+		"Name=creditCard", "Value=", ENDITEM, 
+		"Name=expDate", "Value=", ENDITEM, 
+		"Name=oldCCOption", "Value=", ENDITEM, 
+		"Name=numPassengers", "Value=1", ENDITEM, 
+		"Name=seatType", "Value=Coach", ENDITEM, 
+		"Name=seatPref", "Value=Window", ENDITEM, 
+		"Name=outboundFlight", "Value=020;338;11/27/2022", ENDITEM, 
+		"Name=advanceDiscount", "Value=0", ENDITEM, 
+		"Name=returnFlight", "Value=", ENDITEM, 
+		"Name=JSFormSubmit", "Value=off", ENDITEM, 
+		"Name=buyFlights.x", "Value=50", ENDITEM, 
+		"Name=buyFlights.y", "Value=14", ENDITEM, 
+		"Name=.cgifields", "Value=saveCC", ENDITEM, 
+		LAST);
+
+	web_url("bookanother.gif", 
+		"URL=http://localhost:1080/WebTours/images/bookanother.gif", 
+		"Resource=1", 
+		"RecContentType=image/gif", 
+		"Referer=", 
+		"Snapshot=t14.inf", 
+		LAST);
+
+	web_submit_data("reservations.pl_5", 
+		"Action=http://localhost:1080/cgi-bin/reservations.pl", 
+		"Method=POST", 
+		"RecContentType=text/html", 
+		"Referer=http://localhost:1080/cgi-bin/reservations.pl", 
+		"Snapshot=t15.inf", 
+		"Mode=HTTP", 
+		ITEMDATA, 
+		"Name=Book Another.x", "Value=33", ENDITEM, 
+		"Name=Book Another.y", "Value=11", ENDITEM, 
+		LAST);
+
+	web_url("button_next.gif_4", 
+		"URL=http://localhost:1080/WebTours/images/button_next.gif", 
+		"Resource=1", 
+		"RecContentType=image/gif", 
+		"Referer=http://localhost:1080/cgi-bin/reservations.pl", 
+		"Snapshot=t16.inf", 
+		LAST);
+
+	web_revert_auto_header("Origin");
+
+	web_url("welcome.pl_2", 
+		"URL=http://localhost:1080/cgi-bin/welcome.pl?page=itinerary", 
+		"Resource=0", 
+		"RecContentType=text/html", 
+		"Referer=http://localhost:1080/cgi-bin/nav.pl?page=menu&in=flights", 
+		"Snapshot=t17.inf", 
+		"Mode=HTTP", 
+		LAST);
+
+	web_revert_auto_header("Sec-Fetch-User");
+
+	web_url("nav.pl_2", 
+		"URL=http://localhost:1080/cgi-bin/nav.pl?page=menu&in=itinerary", 
+		"Resource=0", 
+		"RecContentType=text/html", 
+		"Referer=http://localhost:1080/cgi-bin/welcome.pl?page=itinerary", 
+		"Snapshot=t18.inf", 
+		"Mode=HTTP", 
+		LAST);
+
+	web_url("itinerary.pl", 
+		"URL=http://localhost:1080/cgi-bin/itinerary.pl", 
+		"Resource=0", 
+		"RecContentType=text/html", 
+		"Referer=http://localhost:1080/cgi-bin/welcome.pl?page=itinerary", 
+		"Snapshot=t19.inf", 
+		"Mode=HTTP", 
+		LAST);
+
+	web_concurrent_start(NULL);
+
+	web_url("flights.gif", 
+		"URL=http://localhost:1080/WebTours/images/flights.gif", 
+		"Resource=1", 
+		"RecContentType=image/gif", 
+		"Referer=", 
+		"Snapshot=t20.inf", 
+		LAST);
+
+	web_url("in_itinerary.gif", 
+		"URL=http://localhost:1080/WebTours/images/in_itinerary.gif", 
+		"Resource=1", 
+		"RecContentType=image/gif", 
+		"Referer=", 
+		"Snapshot=t21.inf", 
+		LAST);
+
+	web_url("home.gif_2", 
+		"URL=http://localhost:1080/WebTours/images/home.gif", 
+		"Resource=1", 
+		"RecContentType=image/gif", 
+		"Referer=http://localhost:1080/cgi-bin/nav.pl?page=menu&in=itinerary", 
+		"Snapshot=t22.inf", 
+		LAST);
+
+	web_url("signoff.gif_2", 
+		"URL=http://localhost:1080/WebTours/images/signoff.gif", 
+		"Resource=1", 
+		"RecContentType=image/gif", 
+		"Referer=http://localhost:1080/cgi-bin/nav.pl?page=menu&in=itinerary", 
+		"Snapshot=t23.inf", 
+		LAST);
+
+	web_url("cancelreservation.gif", 
+		"URL=http://localhost:1080/WebTours/images/cancelreservation.gif", 
+		"Resource=1", 
+		"RecContentType=image/gif", 
+		"Referer=", 
+		"Snapshot=t24.inf", 
+		LAST);
+
+	web_url("cancelallreservations.gif", 
+		"URL=http://localhost:1080/WebTours/images/cancelallreservations.gif", 
+		"Resource=1", 
+		"RecContentType=image/gif", 
+		"Referer=", 
+		"Snapshot=t25.inf", 
+		LAST);
+
+	web_concurrent_end(NULL);
+	
+	lr_end_transaction("t1", LR_AUTO);
+
+
+	return 0;
+}
+```
+
+
+
+
+
+
+
+#### 7.设置运行时参数
+
+![image-20221126132715595](img/LoadRunner学习笔记/image-20221126132715595.png)
+
+
+
+![image-20221126132732782](img/LoadRunner学习笔记/image-20221126132732782.png)
+
+
+
+
+
+
+
+### 创建性能测试场景
+
+
+
+#### 1.点击创建controller场景
+
+![image-20221126132818955](img/LoadRunner学习笔记/image-20221126132818955.png)
+
+
+
+
+
+![image-20221126132907447](img/LoadRunner学习笔记/image-20221126132907447.png)
+
+
+
+#### 2.点击确定
+
+
+
+![image-20221126132922710](img/LoadRunner学习笔记/image-20221126132922710.png)
+
+
+
+![image-20221126133040669](img/LoadRunner学习笔记/image-20221126133040669.png)
+
+
+
+#### 3.设置初始化参数
+
+![image-20221126133107989](img/LoadRunner学习笔记/image-20221126133107989.png)
+
+
+
+
+
+#### 4.设置启动Vuser参数
+
+![image-20221126133154694](img/LoadRunner学习笔记/image-20221126133154694.png)
+
+
+
+
+
+#### 5.设置持续时间参数
+
+![image-20221126133238314](img/LoadRunner学习笔记/image-20221126133238314.png)
+
+
+
+
+
+#### 6.设置停止Vuser参数
+
+![image-20221126133306731](img/LoadRunner学习笔记/image-20221126133306731.png)
+
+
+
+最终的图
+
+
+
+![image-20221126133320543](img/LoadRunner学习笔记/image-20221126133320543.png)
+
+
+
+
+
+
+
+
+
+### 利用Analysis分析结果
+
+#### 1.启动测试
+
+![image-20221125233056153](img/LoadRunner学习笔记/image-20221125233056153.png)
+
+
+
+#### 2.等待结果
+
+
+
+![image-20221126133735007](img/LoadRunner学习笔记/image-20221126133735007.png)
+
+
+
+
+
+
+
+#### 3.点击分析结果
+
+![image-20221125233743292](img/LoadRunner学习笔记/image-20221125233743292.png)
+
+
+
+![image-20221126133844179](img/LoadRunner学习笔记/image-20221126133844179.png)
+
+
+
+![image-20221126133943833](img/LoadRunner学习笔记/image-20221126133943833.png)
+
+
+
+
+
+
+
+事务响应时间
+
+
+
+![image-20221126134405982](img/LoadRunner学习笔记/image-20221126134405982.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 分别计时
+
+![image-20221126135524455](img/LoadRunner学习笔记/image-20221126135524455.png)
+
+
+
+
+
+#### 1.点击添加组
+
+![image-20221126135543951](img/LoadRunner学习笔记/image-20221126135543951.png)
+
+
+
+![image-20221126135559249](img/LoadRunner学习笔记/image-20221126135559249.png)
+
+
+
+![image-20221126135607277](img/LoadRunner学习笔记/image-20221126135607277.png)
+
+
+
+
+
+#### 2.计划方式选择组
+
+![image-20221126135634000](img/LoadRunner学习笔记/image-20221126135634000.png)
+
+
+
+
+
+#### 3.更改每个组的参数
+
+
+
+![image-20221126135811471](img/LoadRunner学习笔记/image-20221126135811471.png)
+
+
+
+分别计时，webhtml1一共5个Vuser，持续3分钟，webhtml2一共1个Vuser，持续3.5分钟
+
+
+
+
+
+#### 4.启动测试并等待结果
+
+
+
+![image-20221126135938005](img/LoadRunner学习笔记/image-20221126135938005.png)
+
+
+
+
+
+
+
+
 
